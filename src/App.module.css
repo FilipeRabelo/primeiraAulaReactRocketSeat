@@ -1,0 +1,14 @@
+
+/* SIDEBAR */
+
+.wrapper{
+  max-width: 70rem;   /* 1.120px */
+  margin: 2rem auto;  /* centralizar na tela */
+  padding: 0 1rem;    /* para desgrudar das telas caso reduza o tamnho da tela */
+
+  display: grid;  /* PARA Laterarizar a SIDEBAR */
+  grid-template-columns: 256px 1fr;  /* largura da sidebar - 1fr : largura flexivel*/
+  gap: 2rem; /* 32px */
+  align-items: flex-start;
+}
+

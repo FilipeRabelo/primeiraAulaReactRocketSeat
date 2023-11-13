@@ -1,0 +1,23 @@
+.form{
+  margin: 15px 0 15px 0;
+}
+
+.label{
+  margin-right: 5px;
+  color: blueviolet;
+}
+
+.input{
+  background-color: blueviolet;
+  margin-left: 5px;
+}
+
+.input2{
+  background-color: blueviolet;
+  margin-left: 9px;
+}
+
+.input3{
+  background-color: blueviolet;
+  margin-left: 12px;
+}

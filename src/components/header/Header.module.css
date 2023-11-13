@@ -1,0 +1,20 @@
+.header{
+  background: var(--gray-800);
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem 0;   /* 1.25rem (20px) em baixo e cima - 0 aos lados */
+}
+
+.header img{
+  height: 2rem; /* 32px */
+}
+
+.header strong{
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-left: 1rem;
+}
