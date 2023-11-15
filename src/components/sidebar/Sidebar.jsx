@@ -1,6 +1,6 @@
 // ICONE DE EDITAR PERFIL
 import { PencilLine } from 'phosphor-react'
-
+import { Avatar } from "../avatar/Avatar";
 import styles from './Sidebar.module.css'
 
 export function Sidebar(){
@@ -15,15 +15,18 @@ export function Sidebar(){
 
       <div className={styles.profile}>
 
-        <img src={'https://github.com/FilipeRabelo.png'}/>
-
+        {/*TRAZENDO AS PROPRIEDADE DO AVATAR QUE ESTAO NO COMPONENTE AVATAR*/}
+        <Avatar
+          hasBorder
+          src={'https://github.com/FilipeRabelo.png'}
+        />
         <strong>Filipe Rabelo</strong>
         <span>Web Developer</span>
       </div>
 
       <footer>
         <a href={"#"}>
-          <PencilLine size={20}/>
+          <PencilLine size={18}/>
           Editar seu Perfil
         </a>
       </footer>
