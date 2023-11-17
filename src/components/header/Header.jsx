@@ -9,7 +9,8 @@ export function Header(){
   return(
       <header className={styles.header}>
         <img  src={igniterLogo} alt="Logotipo"/>
-        <strong>Developer Feed</strong >
+        {/*<strong>Developer Feed</strong >*/}
+        <a className={styles.logo} href={'http://localhost:5173'} target={'_blank'}>Developer Feed</a>
       </header>
   )
 

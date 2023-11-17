@@ -1,5 +1,6 @@
-
 /* SIDEBAR */
+
+/* GRID QUE DEFINE O TAMANHO QUE A SIDEBAR OCUPA */
 
 .wrapper{
   max-width: 70rem;   /* 1.120px */
@@ -7,8 +8,28 @@
   padding: 0 1rem;    /* para desgrudar das telas caso reduza o tamnho da tela */
 
   display: grid;  /* PARA Laterarizar a SIDEBAR */
-  grid-template-columns: 256px 1fr;  /* largura da sidebar - 1fr : largura flexivel*/
+  grid-template-columns: 256px 1fr;  /* OCUPA 2 COLUNAS - largura da sidebar - 1fr : largura flexivel - ONDE DEFINE O TAMANHO Q A TELA OCUPA*/
   gap: 2rem; /* 32px */
   align-items: flex-start;
 }
 
+
+
+/*RESPNSIVIDADE*/
+
+/* SE O TAMNHO DA TELA FOR MANOR QUE 768px */
+
+@media (max-width: 768px) {
+  .wrapper{
+    grid-template-columns: 1fr; /* GRID VAO OCUPA APENAS UMA COLUNA */
+  }
+
+  html{
+    font-size: 87.5%;
+  }
+}
+
+/*16 -> 100%*/
+/*14 -> x*/
+
+/*14 * 100 /16 = 87,5%*/
