@@ -1,10 +1,27 @@
-import styles from './Post.module.css'
+import { format, formatDistanceToNow } from 'date-fns';   /* IMPORTANDO A BIBLIOTECA DE DATAS - NPM I DATE-FNS*/
+import ptbr from 'date-fns/locale/pt-br'
 
-import { Comment } from '../comment/Comment.jsx'
+import { Comment } from '../comment/Comment.jsx';
 import { Avatar } from "../avatar/Avatar";
 
-export function Post(){
+import styles from './Post.module.css';
+
+//export function Post( props ){ DESTRUTURAÇÃO
+export function Post( {author, publishedAt, content} ){  // RECEBENDO AS INFORMAÇÕES DO POST
+
+  // console.log(props)
+
+  const publishedAtDateFormatted = format(publishedAt, "dd 'de' LLLL 'às' HH:mm' hrs'", {
+    locale: ptbr
+  })
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptbr,
+    addSuffix: true   /* sufixo - prefixo - há */
+  })
+
   return (
+
     <article className={styles.post}>
 
       { /* INICIO HEADER AUTHOR - avatar, nome, cargo e data de publicação */}
@@ -12,34 +29,42 @@ export function Post(){
 
         { /* DIV AUTHOR */}
         <div className={styles.author}>
-          <Avatar hasBorder src={'https://github.com/FilipeRabelo.png'} alt={"avatar"}/>
+
+          <Avatar hasBorder src={author.avatarUrl} alt={"avatar"}/>
+
           <div className={styles.authorInfo}>  { /* NOME E CARGO DO AUTHOR */}
-            <strong>Filipe Rabelo</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
+
         </div>
         { /* FIM DIV AUTHOR */}
 
-        <time title={'13 novembro às 12:00'} dateTime={'2023-11-13 12:00:00'}>Publicado a 1 Hora</time>
+        <time title={publishedAtDateFormatted} dateTime={publishedAt.toISOString()}>
+          {publishedDateRelativeToNow}
+        </time>
 
       </header>
       { /* FIM HEADER AUTHOR */}
 
+
+
       {/* CONTEUDO DO POST */}
       <div className={styles.content}>
-        <p>Fala galeraa 👋</p>
-        <p>
-          Acabei de subir mais um projeto no meu GitHub.
-          É um projeto que fiz durante as aulas da RocketSeat. <br/> O nome do projeto é Fundamentos do React 🚀
-        </p>
-        <p>👉 {' '}<a href={'https://github.com/FilipeRabelo/primeiraAulaReactRocketSeat'} target={'_blank'}>filiperabelo/github/</a> </p>
-        <p>💻 {' '}
-          <a href={'https://www.rocketseat.com.br/'} target={'_blank'}>#novoprojeto</a>{' '}
-          <a href={'https://www.rocketseat.com.br/'} target={'_blank'}>#nlw</a>{' '}
-          <a href={'https://www.rocketseat.com.br/'} target={'_blank'}>#rocketseat</a>
-        </p>
+
+        {content.map(linhaArray => {
+
+          if(linhaArray.type == 'paragraph'){
+            return <p>{linhaArray.content}</p>;
+          }else if(linhaArray.type == 'link'){
+            return <p><a href={'#'}><p>{linhaArray.content}</p></a></p>
+          }
+
+        })}
+
       </div>
       {/* FIM CONTEUDO DO POST */}
+
 
       {/* INICIO COMENTARIOS */}
       <form className={styles.commentForm}>
@@ -52,6 +77,8 @@ export function Post(){
         </footer>
       </form>
       {/* FIM COMENTARIOS */}
+
+
 
       {/*trazendo o componente dos comentarios */}
       <div className={styles.commentList}>
