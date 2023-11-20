@@ -49,6 +49,8 @@ const posts =[
 
 ];
 
+
+
 export function App() {
   return (
     <div>
@@ -60,8 +62,8 @@ export function App() {
         <Sidebar/>
 
         {/* CONTEUDO PRINCIPAL */}
-        <main>   {/* ITERAÇÂO - PRECORRER O ARRAY */}
-          {posts.map(post => {
+        <main>
+          {posts.map(post => {   {/* ITERAÇÂO - PRECORRER O ARRAY */}
             return(
               <Post
                 author={post.author}
@@ -71,8 +73,10 @@ export function App() {
             )
           })}
         </main>
+        {/* FIM CONTEUDO PRINCIPAL */}
 
       </div>
+
     </div>
   )
 }

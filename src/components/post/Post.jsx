@@ -66,6 +66,7 @@ export function Post( {author, publishedAt, content} ){  // RECEBENDO AS INFORMA
       {/* FIM CONTEUDO DO POST */}
 
 
+
       {/* INICIO COMENTARIOS */}
       <form className={styles.commentForm}>
         <strong>Deixe seu Comentario</strong>
